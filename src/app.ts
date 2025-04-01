@@ -9,6 +9,7 @@ import adminRoutes from "./routes/admin.routes";
 import { corsHandler } from "./middleware/corsHandler";
 import { loggingHandler } from "./middleware/loggingHandler";
 import { routeNotFound } from "./middleware/routeNotFound";
+import messageRoutes from './routes/message.routes';
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.use("/api/products", productsRoutes);
 app.use("/api/company", companyRoutes);
 app.use("/api/orders", pedidosRoutes);
 app.use("/api/admins", adminRoutes);
+app.use('/api', messageRoutes);
 
 app.use(routeNotFound);//Middleware para informar de una ruta inexistente fuera de /users , /products ,etc.
 
